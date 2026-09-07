@@ -1,0 +1,598 @@
+/* =========================================================
+   SITE — ÉTICA E MORAL
+   CSS MOBILE-FIRST
+   ========================================================= */
+
+
+/* ==================== CORES — VERDE ESMERALDA ====================
+   ✏️ Quer mudar as cores? Altere somente aqui! Altere somente aqui!
+   ========================================================= */
+
+:root {
+    --verde-principal: #176b45;
+    --verde-escuro: #0b3d2e;
+    --verde-claro: #e5f1eb;
+    --verde-muito-claro: #f3f8f5;
+
+    --branco: #ffffff;
+    --cinza-fundo: #F4F6F4;
+    --cinza-borda: #dfe8ed;
+    --texto: #176b45;
+    --texto-suave: #17211d;
+
+    /* ✏️ Fonte principal */
+    --fonte-principal: Arial, Helvetica, sans-serif;
+
+    /* ✏️ Tamanho dos cantos arredondados */
+    --raio: 14px;
+}
+
+
+/* ==================== RESET ==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background: var(--cinza-fundo);
+    color: var(--texto);
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+}
+
+
+/* ==================== CABEÇALHO ==================== */
+
+.header {
+    width: 100%;
+    min-height: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 8px 10px;
+
+    /* ✏️ Fundo do topo */
+    background: #afbb96;
+    border-bottom: none;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Logo */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 115px;
+    height: auto;
+    display: block;
+}
+
+
+/* ==================== BOTÃO DO MENU ==================== */
+
+.menu-button {
+    width: 20px;
+    height: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background: var(--verde-muito-claro);
+}
+
+.menu-button span {
+    display: block;
+
+    width: 24px;
+    height: 2px;
+
+    background: #2C3E35;
+
+    border-radius: 10px;
+
+    transition: 0.25s ease;
+}
+
+
+/* Animação do ☰ para X */
+
+.menu-button.aberto span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-button.aberto span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.aberto span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ==================== MENU ==================== */
+
+.menu {
+    width: 100%;
+
+    /* O menu aberto usa a mesma cor do cabeçalho */
+    background: #afbb96;;
+
+    border-bottom: none;
+
+    /* Menu começa fechado */
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height 0.3s ease;
+
+    position: relative;
+    z-index: 9;
+}
+
+
+/* Menu aberto */
+
+.menu.aberto {
+    max-height: 400px;
+}
+
+
+/* Botões do menu */
+
+.menu button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--cinza-borda);
+
+    color: #2C3E35;
+
+    font-family: inherit;
+    font-size: 16px;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.menu button:hover,
+.menu button:focus {
+    background: var(--verde-principal);
+    color: var(--branco);
+}
+
+
+/* ==================== CONTEÚDO ==================== */
+
+main {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    flex: 1;
+}
+
+
+/* Cada seção */
+
+.secao {
+    display: none;
+
+    padding: 42px 20px 55px;
+
+    animation: aparecer 0.35s ease;
+    text-align: center;
+}
+
+
+/* Apenas a seção escolhida aparece */
+
+.secao.ativa {
+    display: block;
+}
+
+
+/* Pequena animação */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==================== TÍTULOS ==================== */
+
+.eyebrow {
+    margin-bottom: 8px;
+
+    color: var(--verde-principal);
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1,
+h2 {
+    color: var(--verde-escuro);
+    line-height: 1.2;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 34px;
+}
+
+h2 {
+    margin-bottom: 22px;
+    font-size: 30px;
+}
+
+h3 {
+    color: var(--verde-escuro);
+    line-height: 1.3;
+}
+
+h4 {
+    text-align: center;
+}
+
+/* ==================== TEXTOS ==================== */
+
+.texto-intro {
+    color: var(--texto-suave);
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+.texto-2 {
+    color: var(--texto-suave);
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.texto {
+    margin-bottom: 15px;
+    color: var(--texto-suave);
+}
+
+.referencias {
+     margin-bottom: 10px;
+    color: var(--texto);
+}
+
+.referencias-2 {
+     margin-bottom: 10px;
+    color: var(--texto);
+}
+
+
+
+/* Linha decorativa */
+
+.linha-destaque {
+    width: 55px;
+    height: 4px;
+
+    margin: 20px 0;
+
+    background: var(--verde-principal);
+    border-radius: 10px;
+}
+
+
+/* ==================== ARTIGOS ==================== */
+
+.artigos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin-top: 28px;
+}
+
+
+.artigo-card {
+    padding: 20px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--cinza-borda);
+    border-radius: var(--raio);
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.artigo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.numero-artigo {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--verde-principal);
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+.artigo-card h3 {
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+
+.artigo-card p {
+    margin-bottom: 16px;
+
+    color: var(--texto-suave);
+
+    font-size: 14px;
+}
+
+
+.link-artigo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--verde-principal);
+
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link-artigo:hover {
+    color: var(--verde-escuro);
+}
+
+.link-artigo span {
+    font-size: 18px;
+}
+
+
+/* ==================== SOBRE NÓS ==================== */
+
+.grupo {
+    margin-top: 30px;
+    padding: 20px;
+
+    background: var(--verde-claro);
+
+    border-radius: var(--raio);
+}
+
+.grupo h3 {
+    margin-bottom: 10px;
+}
+
+.grupo ul {
+    padding-left: 20px;
+}
+
+.grupo li {
+    margin-bottom: 5px;
+}
+
+/* ==================== RODAPÉ ==================== */
+
+.footer {
+    padding: 15px 20px;
+
+    background: #afbb96;;
+
+    color: #2C3E35;
+
+    text-align: center;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLET / COMPUTADOR
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    .header {
+        min-height: 82px;
+        padding: 12px 5%;
+    }
+
+    .logo {
+        width: 115px;
+    }
+
+    .menu button {
+        text-align: center;
+    }
+
+    .secao {
+        padding: 65px 40px 80px;
+        text-align: left;
+    }
+
+    h1 {
+        max-width: 700px;
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 38px;
+    }
+
+    .texto-intro {
+        max-width: 700px;
+        font-size: 19px;
+    }
+
+    .artigos-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+
+/* ==================== TELA GRANDE ==================== */
+
+@media (min-width: 1100px) {
+
+    .header {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .secao {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .artigos-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* 🎮 DESAFIO ÉTICO */
+
+.botao-desafio {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 24px;
+  background: var(--verde-principal);
+  color: var(--branco);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botao-desafio:hover {
+  background: var(--verde-escuro);
+  transform: translateY(-2px);
+}
+
+.botao-desafio:active {
+  transform: translateY(0);
+}
+
+/* 🎮 ESTILO DO DESAFIO */
+
+.jogo {
+  width: 100%;
+  margin-top: 30px;
+}
+
+#numero-pergunta {
+  color: var(--verde-principal);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#pergunta {
+  margin: 20px auto;
+  max-width: 750px;
+  line-height: 1.6;
+  font-size: 20px;
+}
+
+#alternativas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 700px;
+  margin: 25px auto 0;
+}
+
+.botao-alternativa {
+  width: 100%;
+  padding: 16px 18px;
+  background: var(--verde-muito-claro);
+  color: var(--texto);
+  border: 2px solid var(--cinza-borda);
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.botao-alternativa:hover {
+  border-color: var(--verde-principal);
+  background: var(--verde-claro);
+  transform: translateY(-2px);
+}
+
+.resultado {
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+
+.resultado h3 {
+  color: var(--verde-principal);
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.resultado p {
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.palavra {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
